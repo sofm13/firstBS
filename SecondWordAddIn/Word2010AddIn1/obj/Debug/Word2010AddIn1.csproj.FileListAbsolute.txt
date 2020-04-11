@@ -1,0 +1,15 @@
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\bin\Debug\Word2010AddIn1.dll
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\bin\Debug\Word2010AddIn1.pdb
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\bin\Debug\Word2010AddIn1.dll.manifest
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\bin\Debug\Word2010AddIn1.vsto
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.xml
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\obj\Debug\Word2010AddIn1.Properties.Resources.resources
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\obj\Debug\Word2010AddIn1.RibbonWord2010.resources
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\obj\Debug\Word2010AddIn1.dll
+C:\Users\Leo.TANG\Documents\Visual Studio 2010\Projects\SecondWordAddIn\Word2010AddIn1\obj\Debug\Word2010AddIn1.pdb

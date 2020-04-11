@@ -1,0 +1,4 @@
+c:\users\leo.tang\documents\visual studio 2010\Projects\SecondWordAddIn\SecondWordAddIn\obj\Debug\ResolveAssemblyReference.cache
+c:\users\leo.tang\documents\visual studio 2010\Projects\SecondWordAddIn\SecondWordAddIn\obj\Debug\SecondWordAddIn.Properties.Resources.resources
+c:\users\leo.tang\documents\visual studio 2010\Projects\SecondWordAddIn\SecondWordAddIn\obj\Debug\GenerateResource.read.1.tlog
+c:\users\leo.tang\documents\visual studio 2010\Projects\SecondWordAddIn\SecondWordAddIn\obj\Debug\GenerateResource.write.1.tlog

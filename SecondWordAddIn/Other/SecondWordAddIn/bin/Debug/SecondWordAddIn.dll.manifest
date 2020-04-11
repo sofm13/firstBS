@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="SecondWordAddIn.dll" version="1.0.0.0" publicKeyToken="ff9c27eca97cbdd5" language="neutral" processorArchitecture="msil" type="win32" />
+  <description xmlns="urn:schemas-microsoft-com:asm.v1">SecondWordAddIn</description>
+  <application />
+  <entryPoint>
+    <co.v1:customHostSpecified />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC 清单选项
+          如果要更改 Windows 用户帐户控制级别，请用以下节点之一替换
+          requestedExecutionLevel 节点。
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+          如果要利用文件和注册表虚拟化提供
+          向后兼容性，请删除 requestedExecutionLevel 节点。
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Office.Tools.v4.0.Framework" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Office.Tools.Word" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.VisualStudio.Tools.Applications.Runtime" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" size="32664">
+      <assemblyIdentity name="Microsoft.Office.Tools.Common.v4.0.Utilities" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>CtnCtseaMyfROIGe0ENdGO6arHg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SecondWordAddIn.dll" size="17408">
+      <assemblyIdentity name="SecondWordAddIn" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>PT2ymmkz9nvS6SDPMQVwPcQJZXI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <vstav3:addIn xmlns:vstav3="urn:schemas-microsoft-com:vsta.v3">
+    <vstav3:entryPointsCollection>
+      <vstav3:entryPoints>
+        <vstav3:entryPoint class="SecondWordAddIn.ThisAddIn">
+          <assemblyIdentity name="SecondWordAddIn" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+        </vstav3:entryPoint>
+      </vstav3:entryPoints>
+    </vstav3:entryPointsCollection>
+    <vstav3:update enabled="true">
+      <vstav3:expiration maximumAge="7" unit="days" />
+    </vstav3:update>
+    <vstav3:application>
+      <vstov4:customizations xmlns:vstov4="urn:schemas-microsoft-com:vsto.v4">
+        <vstov4:customization>
+          <vstov4:appAddIn application="Word" loadBehavior="3" keyName="SecondWordAddIn">
+            <vstov4:friendlyName>SecondWordAddIn</vstov4:friendlyName>
+            <vstov4:description>SecondWordAddIn</vstov4:description>
+            <vstov4.1:ribbonTypes xmlns:vstov4.1="urn:schemas-microsoft-com:vsto.v4.1">
+              <vstov4.1:ribbonType name="SecondWordAddIn.RibbonWord2010, SecondWordAddIn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            </vstov4.1:ribbonTypes>
+          </vstov4:appAddIn>
+        </vstov4:customization>
+      </vstov4:customizations>
+    </vstav3:application>
+  </vstav3:addIn>
+<publisherIdentity name="CN=DELL-JF\Leo.TANG" issuerKeyHash="5bbfbd631dd3fff06abfb7b2e184aa10a15bbb2c" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>c2/TzjNsh0apdPwFrhb5Qxj8sWs=</DigestValue></Reference></SignedInfo><SignatureValue>QJgHkhZ48PXZaCcR7G1X9y4ze5x0eu9KtHhHQiersnRkON21vCHnZ/l4A6J+NVzBCft/Zy+JCuK3PyZC/dxmZvHiPXR55ixMeSyENkCREQqbmEv9xLWml8t3YRmnkfmvbe0/Rk+f57FXkjrS7ut+9jYdff1FaQGDgwH2H0ZrGAE=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>pOOvwDja+r/aJyCMhjOM3tWDejYfp9+xxYTIEQi81NQXilXubOhKWa+LcR3rCAvXSLo5hTe61VubMxedBhJBsHPkgXv+cI4DulELkTh+jiYA51dEif//c2DK0P7Fn/keLPtNa2KreRBSeoF0+DdNJiMBf+TikrQn3PdeNag938s=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="6bb1fc1843f916ae05fc74a946876c33ced36f73" Description="" Url=""><as:assemblyIdentity name="SecondWordAddIn.dll" version="1.0.0.0" publicKeyToken="ff9c27eca97cbdd5" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DELL-JF\Leo.TANG</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>kGsfJfJPU6cjbWuP97PG9ULKx34=</DigestValue></Reference></SignedInfo><SignatureValue>iGDQMAPuE2rIRJuEM7cRYNxID9O5LMDbl3+OH3KFCyNs+uquxpcQS2Ubc5PouOpKuBFnMS/l2s/xy2mqEvLQYS1qkEkbvTjDaMOV8x2h8mcxoeIOROfJxpWZ94sc9Gu9nCcPTMfxwE2SNxXzpIFIm2hQryqDXlD2NFFpkvR4RA0=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>pOOvwDja+r/aJyCMhjOM3tWDejYfp9+xxYTIEQi81NQXilXubOhKWa+LcR3rCAvXSLo5hTe61VubMxedBhJBsHPkgXv+cI4DulELkTh+jiYA51dEif//c2DK0P7Fn/keLPtNa2KreRBSeoF0+DdNJiMBf+TikrQn3PdeNag938s=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQEhFFTAuXDqdIMJVFOaetcDANBgkqhkiG9w0BAQUFADArMSkwJwYDVQQDHiAARABFAEwATAAtAEoARgBcAEwAZQBvAC4AVABBAE4ARzAeFw0xNTAxMjgwMjI3MzdaFw0xNjAxMjgwODI3MzdaMCsxKTAnBgNVBAMeIABEAEUATABMAC0ASgBGAFwATABlAG8ALgBUAEEATgBHMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCk46/AONr6v9onIIyGM4ze1YN6Nh+n37HFhMgRCLzU1BeKVe5s6EpZr4txHesIC9dIujmFN7rVW5szF50GEkGwc+SBe/5wjgO6UQuROH6OJgDnV0SJ//9zYMrQ/sWf+R4s+01rYqt5EFJ6gXT4N00mIwF/5OKStCfc9141qD3fywIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAGv/YCNbbuoqEc7D85bHR7KQxUIIaVyw6ykp73gUGZPBGIfKITkU7xVyxntb5DPcpOkq8RYtpOhTbd+Orp/Tufbf02iVG9Og+q0WXY4zshZYm3plv7sQwgkxe+vcrw2z/h4e25JJHtIDcIWQwWiuh8wDkF7iUzoXOzFz/p2uMfSc</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
