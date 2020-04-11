@@ -1,106 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.WuzibuMapper">
-  <resultMap id="BaseResultMap" type="com.entity.Wuzibu">
-    <id column="id" jdbcType="INTEGER" property="id" />
-	<result column="zhanghao" jdbcType="VARCHAR" property="zhanghao" />    <result column="mima" jdbcType="VARCHAR" property="mima" />    <result column="xingming" jdbcType="VARCHAR" property="xingming" />    <result column="bumenmingcheng" jdbcType="VARCHAR" property="bumenmingcheng" />    <result column="gangwei" jdbcType="VARCHAR" property="gangwei" />    <result column="lianxidianhua" jdbcType="VARCHAR" property="lianxidianhua" />    <result column="shouji" jdbcType="VARCHAR" property="shouji" />    <result column="jiatingdizhi" jdbcType="VARCHAR" property="jiatingdizhi" />    
-    <result column="addtime" jdbcType="VARCHAR" property="addtime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, zhanghao,mima,xingming,bumenmingcheng,gangwei,lianxidianhua,shouji,jiatingdizhi, addtime
-  </sql>
-  <select id="quchongWuzibu"  parameterType="java.util.Map" resultMap="BaseResultMap" >
-    select 
-    <include refid="Base_Column_List" />
-    from wuzibu 
-    where zhanghao = #{zhanghao,jdbcType=VARCHAR} limit 0,1
-  </select>
- <select id="getCount"   resultType="int" parameterType="java.util.Map" >
-    select  count(*) from wuzibu  where 1=1
-    <if test="zhanghao!=null">and zhanghao like  concat('%',#{zhanghao,jdbcType=VARCHAR},'%')</if>     <if test="mima!=null">and mima like  concat('%',#{mima,jdbcType=VARCHAR},'%')</if>     <if test="xingming!=null">and xingming like  concat('%',#{xingming,jdbcType=VARCHAR},'%')</if>     <if test="bumenmingcheng!=null">and bumenmingcheng like  concat('%',#{bumenmingcheng,jdbcType=VARCHAR},'%')</if>     <if test="gangwei!=null">and gangwei like  concat('%',#{gangwei,jdbcType=VARCHAR},'%')</if>     <if test="lianxidianhua!=null">and lianxidianhua like  concat('%',#{lianxidianhua,jdbcType=VARCHAR},'%')</if>     <if test="shouji!=null">and shouji like  concat('%',#{shouji,jdbcType=VARCHAR},'%')</if>     <if test="jiatingdizhi!=null">and jiatingdizhi like  concat('%',#{jiatingdizhi,jdbcType=VARCHAR},'%')</if>     
-  </select> 
-  <select id="getAll"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from wuzibu  where 1=1
-    <if test="zhanghao!=null">
-    and zhanghao =#{zhanghao}
-    </if>
-  </select>
-  
-  <select id="getsywuzibu1"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from wuzibu  where 1=1
-    limit 0,5
-  </select>
-  <select id="getsywuzibu2"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from wuzibu  where 1=1
-    limit 0,5
-  </select>
-  <select id="getsywuzibu3"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from wuzibu  where 1=1
-    limit 0,5
-  </select>
-  
-   <select id="getByPage" parameterType="java.util.Map" resultMap="BaseResultMap">
-     select  <include refid="Base_Column_List" /> 
-     from wuzibu where 1=1 
-     <if test="zhanghao!=null">and zhanghao like  concat('%',#{zhanghao,jdbcType=VARCHAR},'%')</if>     <if test="mima!=null">and mima like  concat('%',#{mima,jdbcType=VARCHAR},'%')</if>     <if test="xingming!=null">and xingming like  concat('%',#{xingming,jdbcType=VARCHAR},'%')</if>     <if test="bumenmingcheng!=null">and bumenmingcheng like  concat('%',#{bumenmingcheng,jdbcType=VARCHAR},'%')</if>     <if test="gangwei!=null">and gangwei like  concat('%',#{gangwei,jdbcType=VARCHAR},'%')</if>     <if test="lianxidianhua!=null">and lianxidianhua like  concat('%',#{lianxidianhua,jdbcType=VARCHAR},'%')</if>     <if test="shouji!=null">and shouji like  concat('%',#{shouji,jdbcType=VARCHAR},'%')</if>     <if test="jiatingdizhi!=null">and jiatingdizhi like  concat('%',#{jiatingdizhi,jdbcType=VARCHAR},'%')</if>     
-	 order by id desc
-     <if test="pageno!=null and pageSize!=null">
-     limit #{pageno},#{pageSize}
-     </if>
-     </select>
-	 
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from wuzibu
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from wuzibu
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.entity.Wuzibu">
-    insert into wuzibu (id, zhanghao,mima,xingming,bumenmingcheng,gangwei,lianxidianhua,shouji,jiatingdizhi, addtime)
-    values (#{id,jdbcType=INTEGER}, #{zhanghao,jdbcType=VARCHAR},#{mima,jdbcType=VARCHAR},#{xingming,jdbcType=VARCHAR},#{bumenmingcheng,jdbcType=VARCHAR},#{gangwei,jdbcType=VARCHAR},#{lianxidianhua,jdbcType=VARCHAR},#{shouji,jdbcType=VARCHAR},#{jiatingdizhi,jdbcType=VARCHAR}, #{addtime,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.entity.Wuzibu">
-    insert into wuzibu
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="zhanghao != null"> zhanghao, </if>      <if test="mima != null"> mima, </if>      <if test="xingming != null"> xingming, </if>      <if test="bumenmingcheng != null"> bumenmingcheng, </if>      <if test="gangwei != null"> gangwei, </if>      <if test="lianxidianhua != null"> lianxidianhua, </if>      <if test="shouji != null"> shouji, </if>      <if test="jiatingdizhi != null"> jiatingdizhi, </if>      
-      <if test="addtime != null">
-        addtime,
-      </if>
-      
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="zhanghao != null"> #{zhanghao,jdbcType=VARCHAR},</if>      <if test="mima != null"> #{mima,jdbcType=VARCHAR},</if>      <if test="xingming != null"> #{xingming,jdbcType=VARCHAR},</if>      <if test="bumenmingcheng != null"> #{bumenmingcheng,jdbcType=VARCHAR},</if>      <if test="gangwei != null"> #{gangwei,jdbcType=VARCHAR},</if>      <if test="lianxidianhua != null"> #{lianxidianhua,jdbcType=VARCHAR},</if>      <if test="shouji != null"> #{shouji,jdbcType=VARCHAR},</if>      <if test="jiatingdizhi != null"> #{jiatingdizhi,jdbcType=VARCHAR},</if>      
-      <if test="addtime != null">
-        #{addtime,jdbcType=VARCHAR},
-      </if>
-      
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Wuzibu">
-    update wuzibu
-    <set>
-	  <if test="zhanghao != null"> zhanghao = #{zhanghao,jdbcType=VARCHAR},</if>      <if test="mima != null"> mima = #{mima,jdbcType=VARCHAR},</if>      <if test="xingming != null"> xingming = #{xingming,jdbcType=VARCHAR},</if>      <if test="bumenmingcheng != null"> bumenmingcheng = #{bumenmingcheng,jdbcType=VARCHAR},</if>      <if test="gangwei != null"> gangwei = #{gangwei,jdbcType=VARCHAR},</if>      <if test="lianxidianhua != null"> lianxidianhua = #{lianxidianhua,jdbcType=VARCHAR},</if>      <if test="shouji != null"> shouji = #{shouji,jdbcType=VARCHAR},</if>      <if test="jiatingdizhi != null"> jiatingdizhi = #{jiatingdizhi,jdbcType=VARCHAR},</if>      
-      <if test="addtime != null">
-        addtime = #{addtime,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  
-  
-  
-  <update id="updateByPrimaryKey" parameterType="com.entity.Wuzibu">
-    update wuzibu
-    set zhanghao = #{zhanghao,jdbcType=VARCHAR},mima = #{mima,jdbcType=VARCHAR},xingming = #{xingming,jdbcType=VARCHAR},bumenmingcheng = #{bumenmingcheng,jdbcType=VARCHAR},gangwei = #{gangwei,jdbcType=VARCHAR},lianxidianhua = #{lianxidianhua,jdbcType=VARCHAR},shouji = #{shouji,jdbcType=VARCHAR},jiatingdizhi = #{jiatingdizhi,jdbcType=VARCHAR},  addtime = #{addtime,jdbcType=VARCHAR} where id = #{id,jdbcType=INTEGER}
-  </update>
-</mapper>

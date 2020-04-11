@@ -1,106 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.BumenguanliMapper">
-  <resultMap id="BaseResultMap" type="com.entity.Bumenguanli">
-    <id column="id" jdbcType="INTEGER" property="id" />
-	<result column="bumenbianhao" jdbcType="VARCHAR" property="bumenbianhao" />    <result column="bumenmingcheng" jdbcType="VARCHAR" property="bumenmingcheng" />    <result column="bumendianhua" jdbcType="VARCHAR" property="bumendianhua" />    <result column="bumenchuanzhen" jdbcType="VARCHAR" property="bumenchuanzhen" />    <result column="bumenxinxi" jdbcType="VARCHAR" property="bumenxinxi" />    
-    <result column="addtime" jdbcType="VARCHAR" property="addtime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, bumenbianhao,bumenmingcheng,bumendianhua,bumenchuanzhen,bumenxinxi, addtime
-  </sql>
-  <select id="quchongBumenguanli"  parameterType="java.util.Map" resultMap="BaseResultMap" >
-    select 
-    <include refid="Base_Column_List" />
-    from bumenguanli 
-    where bumenbianhao = #{bumenbianhao,jdbcType=VARCHAR} limit 0,1
-  </select>
- <select id="getCount"   resultType="int" parameterType="java.util.Map" >
-    select  count(*) from bumenguanli  where 1=1
-    <if test="bumenbianhao!=null">and bumenbianhao like  concat('%',#{bumenbianhao,jdbcType=VARCHAR},'%')</if>     <if test="bumenmingcheng!=null">and bumenmingcheng like  concat('%',#{bumenmingcheng,jdbcType=VARCHAR},'%')</if>     <if test="bumendianhua!=null">and bumendianhua like  concat('%',#{bumendianhua,jdbcType=VARCHAR},'%')</if>     <if test="bumenchuanzhen!=null">and bumenchuanzhen like  concat('%',#{bumenchuanzhen,jdbcType=VARCHAR},'%')</if>     <if test="bumenxinxi!=null">and bumenxinxi like  concat('%',#{bumenxinxi,jdbcType=VARCHAR},'%')</if>     
-  </select> 
-  <select id="getAll"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from bumenguanli  where 1=1
-    <if test="bumenbianhao!=null">
-    and bumenbianhao =#{bumenbianhao}
-    </if>
-  </select>
-  
-  <select id="getsybumenguanli1"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from bumenguanli  where 1=1
-    limit 0,5
-  </select>
-  <select id="getsybumenguanli2"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from bumenguanli  where 1=1
-    limit 0,5
-  </select>
-  <select id="getsybumenguanli3"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from bumenguanli  where 1=1
-    limit 0,5
-  </select>
-  
-   <select id="getByPage" parameterType="java.util.Map" resultMap="BaseResultMap">
-     select  <include refid="Base_Column_List" /> 
-     from bumenguanli where 1=1 
-     <if test="bumenbianhao!=null">and bumenbianhao like  concat('%',#{bumenbianhao,jdbcType=VARCHAR},'%')</if>     <if test="bumenmingcheng!=null">and bumenmingcheng like  concat('%',#{bumenmingcheng,jdbcType=VARCHAR},'%')</if>     <if test="bumendianhua!=null">and bumendianhua like  concat('%',#{bumendianhua,jdbcType=VARCHAR},'%')</if>     <if test="bumenchuanzhen!=null">and bumenchuanzhen like  concat('%',#{bumenchuanzhen,jdbcType=VARCHAR},'%')</if>     <if test="bumenxinxi!=null">and bumenxinxi like  concat('%',#{bumenxinxi,jdbcType=VARCHAR},'%')</if>     
-	 order by id desc
-     <if test="pageno!=null and pageSize!=null">
-     limit #{pageno},#{pageSize}
-     </if>
-     </select>
-	 
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from bumenguanli
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from bumenguanli
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.entity.Bumenguanli">
-    insert into bumenguanli (id, bumenbianhao,bumenmingcheng,bumendianhua,bumenchuanzhen,bumenxinxi, addtime)
-    values (#{id,jdbcType=INTEGER}, #{bumenbianhao,jdbcType=VARCHAR},#{bumenmingcheng,jdbcType=VARCHAR},#{bumendianhua,jdbcType=VARCHAR},#{bumenchuanzhen,jdbcType=VARCHAR},#{bumenxinxi,jdbcType=VARCHAR}, #{addtime,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.entity.Bumenguanli">
-    insert into bumenguanli
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="bumenbianhao != null"> bumenbianhao, </if>      <if test="bumenmingcheng != null"> bumenmingcheng, </if>      <if test="bumendianhua != null"> bumendianhua, </if>      <if test="bumenchuanzhen != null"> bumenchuanzhen, </if>      <if test="bumenxinxi != null"> bumenxinxi, </if>      
-      <if test="addtime != null">
-        addtime,
-      </if>
-      
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="bumenbianhao != null"> #{bumenbianhao,jdbcType=VARCHAR},</if>      <if test="bumenmingcheng != null"> #{bumenmingcheng,jdbcType=VARCHAR},</if>      <if test="bumendianhua != null"> #{bumendianhua,jdbcType=VARCHAR},</if>      <if test="bumenchuanzhen != null"> #{bumenchuanzhen,jdbcType=VARCHAR},</if>      <if test="bumenxinxi != null"> #{bumenxinxi,jdbcType=VARCHAR},</if>      
-      <if test="addtime != null">
-        #{addtime,jdbcType=VARCHAR},
-      </if>
-      
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Bumenguanli">
-    update bumenguanli
-    <set>
-	  <if test="bumenbianhao != null"> bumenbianhao = #{bumenbianhao,jdbcType=VARCHAR},</if>      <if test="bumenmingcheng != null"> bumenmingcheng = #{bumenmingcheng,jdbcType=VARCHAR},</if>      <if test="bumendianhua != null"> bumendianhua = #{bumendianhua,jdbcType=VARCHAR},</if>      <if test="bumenchuanzhen != null"> bumenchuanzhen = #{bumenchuanzhen,jdbcType=VARCHAR},</if>      <if test="bumenxinxi != null"> bumenxinxi = #{bumenxinxi,jdbcType=VARCHAR},</if>      
-      <if test="addtime != null">
-        addtime = #{addtime,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  
-  
-  
-  <update id="updateByPrimaryKey" parameterType="com.entity.Bumenguanli">
-    update bumenguanli
-    set bumenbianhao = #{bumenbianhao,jdbcType=VARCHAR},bumenmingcheng = #{bumenmingcheng,jdbcType=VARCHAR},bumendianhua = #{bumendianhua,jdbcType=VARCHAR},bumenchuanzhen = #{bumenchuanzhen,jdbcType=VARCHAR},bumenxinxi = #{bumenxinxi,jdbcType=VARCHAR},  addtime = #{addtime,jdbcType=VARCHAR} where id = #{id,jdbcType=INTEGER}
-  </update>
-</mapper>

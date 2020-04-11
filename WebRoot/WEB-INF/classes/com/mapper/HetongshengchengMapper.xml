@@ -1,106 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.HetongshengchengMapper">
-  <resultMap id="BaseResultMap" type="com.entity.Hetongshengcheng">
-    <id column="id" jdbcType="INTEGER" property="id" />
-	<result column="bianhao" jdbcType="VARCHAR" property="bianhao" />    <result column="shebeimingcheng" jdbcType="VARCHAR" property="shebeimingcheng" />    <result column="hetongbianhao" jdbcType="VARCHAR" property="hetongbianhao" />    <result column="hetongneirong" jdbcType="VARCHAR" property="hetongneirong" />    <result column="caigougongsi" jdbcType="VARCHAR" property="caigougongsi" />    <result column="caigouriqi" jdbcType="VARCHAR" property="caigouriqi" />    <result column="caigouren" jdbcType="VARCHAR" property="caigouren" />    
-    <result column="addtime" jdbcType="VARCHAR" property="addtime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, bianhao,shebeimingcheng,hetongbianhao,hetongneirong,caigougongsi,caigouriqi,caigouren, addtime
-  </sql>
-  <select id="quchongHetongshengcheng"  parameterType="java.util.Map" resultMap="BaseResultMap" >
-    select 
-    <include refid="Base_Column_List" />
-    from hetongshengcheng 
-    where bianhao = #{bianhao,jdbcType=VARCHAR} limit 0,1
-  </select>
- <select id="getCount"   resultType="int" parameterType="java.util.Map" >
-    select  count(*) from hetongshengcheng  where 1=1
-    <if test="bianhao!=null">and bianhao like  concat('%',#{bianhao,jdbcType=VARCHAR},'%')</if>     <if test="shebeimingcheng!=null">and shebeimingcheng like  concat('%',#{shebeimingcheng,jdbcType=VARCHAR},'%')</if>     <if test="hetongbianhao!=null">and hetongbianhao like  concat('%',#{hetongbianhao,jdbcType=VARCHAR},'%')</if>     <if test="hetongneirong!=null">and hetongneirong like  concat('%',#{hetongneirong,jdbcType=VARCHAR},'%')</if>     <if test="caigougongsi!=null">and caigougongsi like  concat('%',#{caigougongsi,jdbcType=VARCHAR},'%')</if>     <if test="caigouriqi1!=null">and caigouriqi &gt;=  concat('',#{caigouriqi1,jdbcType=VARCHAR},'')</if>     <if test="caigouriqi2!=null">and caigouriqi &lt;=  concat('',#{caigouriqi2,jdbcType=VARCHAR},'')</if>     <if test="caigouren!=null">and caigouren like  concat('%',#{caigouren,jdbcType=VARCHAR},'%')</if>     
-  </select> 
-  <select id="getAll"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from hetongshengcheng  where 1=1
-    <if test="bianhao!=null">
-    and bianhao =#{bianhao}
-    </if>
-  </select>
-  
-  <select id="getsyhetongshengcheng1"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from hetongshengcheng  where 1=1
-    limit 0,5
-  </select>
-  <select id="getsyhetongshengcheng2"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from hetongshengcheng  where 1=1
-    limit 0,5
-  </select>
-  <select id="getsyhetongshengcheng3"   resultMap="BaseResultMap" parameterType="java.util.Map" >
-    select   <include refid="Base_Column_List" /> from hetongshengcheng  where 1=1
-    limit 0,5
-  </select>
-  
-   <select id="getByPage" parameterType="java.util.Map" resultMap="BaseResultMap">
-     select  <include refid="Base_Column_List" /> 
-     from hetongshengcheng where 1=1 
-     <if test="bianhao!=null">and bianhao like  concat('%',#{bianhao,jdbcType=VARCHAR},'%')</if>     <if test="shebeimingcheng!=null">and shebeimingcheng like  concat('%',#{shebeimingcheng,jdbcType=VARCHAR},'%')</if>     <if test="hetongbianhao!=null">and hetongbianhao like  concat('%',#{hetongbianhao,jdbcType=VARCHAR},'%')</if>     <if test="hetongneirong!=null">and hetongneirong like  concat('%',#{hetongneirong,jdbcType=VARCHAR},'%')</if>     <if test="caigougongsi!=null">and caigougongsi like  concat('%',#{caigougongsi,jdbcType=VARCHAR},'%')</if>     <if test="caigouriqi1!=null">and caigouriqi &gt;=  concat('',#{caigouriqi1,jdbcType=VARCHAR},'')</if>     <if test="caigouriqi2!=null">and caigouriqi &lt;=  concat('',#{caigouriqi2,jdbcType=VARCHAR},'')</if>     <if test="caigouren!=null">and caigouren like  concat('%',#{caigouren,jdbcType=VARCHAR},'%')</if>     
-	 order by id desc
-     <if test="pageno!=null and pageSize!=null">
-     limit #{pageno},#{pageSize}
-     </if>
-     </select>
-	 
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from hetongshengcheng
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from hetongshengcheng
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.entity.Hetongshengcheng">
-    insert into hetongshengcheng (id, bianhao,shebeimingcheng,hetongbianhao,hetongneirong,caigougongsi,caigouriqi,caigouren, addtime)
-    values (#{id,jdbcType=INTEGER}, #{bianhao,jdbcType=VARCHAR},#{shebeimingcheng,jdbcType=VARCHAR},#{hetongbianhao,jdbcType=VARCHAR},#{hetongneirong,jdbcType=VARCHAR},#{caigougongsi,jdbcType=VARCHAR},#{caigouriqi,jdbcType=VARCHAR},#{caigouren,jdbcType=VARCHAR}, #{addtime,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.entity.Hetongshengcheng">
-    insert into hetongshengcheng
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="bianhao != null"> bianhao, </if>      <if test="shebeimingcheng != null"> shebeimingcheng, </if>      <if test="hetongbianhao != null"> hetongbianhao, </if>      <if test="hetongneirong != null"> hetongneirong, </if>      <if test="caigougongsi != null"> caigougongsi, </if>      <if test="caigouriqi != null"> caigouriqi, </if>      <if test="caigouren != null"> caigouren, </if>      
-      <if test="addtime != null">
-        addtime,
-      </if>
-      
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="bianhao != null"> #{bianhao,jdbcType=VARCHAR},</if>      <if test="shebeimingcheng != null"> #{shebeimingcheng,jdbcType=VARCHAR},</if>      <if test="hetongbianhao != null"> #{hetongbianhao,jdbcType=VARCHAR},</if>      <if test="hetongneirong != null"> #{hetongneirong,jdbcType=VARCHAR},</if>      <if test="caigougongsi != null"> #{caigougongsi,jdbcType=VARCHAR},</if>      <if test="caigouriqi != null"> #{caigouriqi,jdbcType=VARCHAR},</if>      <if test="caigouren != null"> #{caigouren,jdbcType=VARCHAR},</if>      
-      <if test="addtime != null">
-        #{addtime,jdbcType=VARCHAR},
-      </if>
-      
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Hetongshengcheng">
-    update hetongshengcheng
-    <set>
-	  <if test="bianhao != null"> bianhao = #{bianhao,jdbcType=VARCHAR},</if>      <if test="shebeimingcheng != null"> shebeimingcheng = #{shebeimingcheng,jdbcType=VARCHAR},</if>      <if test="hetongbianhao != null"> hetongbianhao = #{hetongbianhao,jdbcType=VARCHAR},</if>      <if test="hetongneirong != null"> hetongneirong = #{hetongneirong,jdbcType=VARCHAR},</if>      <if test="caigougongsi != null"> caigougongsi = #{caigougongsi,jdbcType=VARCHAR},</if>      <if test="caigouriqi != null"> caigouriqi = #{caigouriqi,jdbcType=VARCHAR},</if>      <if test="caigouren != null"> caigouren = #{caigouren,jdbcType=VARCHAR},</if>      
-      <if test="addtime != null">
-        addtime = #{addtime,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  
-  
-  
-  <update id="updateByPrimaryKey" parameterType="com.entity.Hetongshengcheng">
-    update hetongshengcheng
-    set bianhao = #{bianhao,jdbcType=VARCHAR},shebeimingcheng = #{shebeimingcheng,jdbcType=VARCHAR},hetongbianhao = #{hetongbianhao,jdbcType=VARCHAR},hetongneirong = #{hetongneirong,jdbcType=VARCHAR},caigougongsi = #{caigougongsi,jdbcType=VARCHAR},caigouriqi = #{caigouriqi,jdbcType=VARCHAR},caigouren = #{caigouren,jdbcType=VARCHAR},  addtime = #{addtime,jdbcType=VARCHAR} where id = #{id,jdbcType=INTEGER}
-  </update>
-</mapper>

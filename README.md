@@ -1,2 +1,0 @@
-# firstBS
-JAVA
